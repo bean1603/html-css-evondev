@@ -1,0 +1,98 @@
+@mixin size($width,$height:$width){
+    width:$width;
+    height: $height;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    background-color: whitesmoke;
+}
+.dropdown{
+    width: 40rem;
+    margin: 2rem auto 0;
+    position: relative;
+    &_select{
+        color: white;
+        background-color: blue;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+    &_text{
+        margin-left: 2rem;
+    }
+    &_caret{
+        margin-left: auto;
+    }
+    &_item{
+        // margin-top: 2rem;
+        color: gray;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.25s linear;
+        border-left: 1px solid transparent ;
+        &:not(:last-child){
+            border-bottom: 1px solid gray;
+        }
+        &:hover{
+            color:black;
+            border-left-color:  blue;
+        }
+    }
+    &_list{
+        border-radius: 2px;
+        box-shadow: 0 0 1rem rgba(black,0.1) ;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        margin-top: 3rem;
+        background-color: white;
+        opacity: 0;
+        visibility: hidden;
+        &:before{
+            content: "" ;
+            @include size(2rem);    
+            background-color: white;
+            // border-left: 10px solid transparent;
+            // border-right: 10px solid transparent;
+            // border-bottom: 10px solid white;
+            position: absolute;
+            top: 0;
+            right:2rem;    
+            transform: translatey(-50%) rotate(-45deg);
+            z-index: -1;
+        }
+        &:after{
+                content: "";
+                @include size(100%,3rem );
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: translatey(-100%);
+                background-color: transparent;  
+                z-index: -2;
+                cursor: pointer;
+            }
+        }
+        
+        &:hover{
+            .dropdown_list{
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+ }
+        
+
+
+
+
+
+
+
