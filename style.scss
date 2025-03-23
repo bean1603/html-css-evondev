@@ -1,95 +1,77 @@
-@mixin size($width,$height:$width){
-    width:$width;
-    height: $height;
-}
-html{
-    font-size: 62.5%;
-}
-body{
-    background-color: whitesmoke;
-}
-.dropdown{
-    width: 40rem;
-    margin: 2rem auto 0;
-    position: relative;
-    &_select{
-        color: white;
-        background-color: blue;
+    @mixin size($width,$height:$width){
+        width:$width;
+        height: $height;
+    }
+    $green-color: green;
+    html{
+        font-size: 62.5%;
+    }
+    .work{
+        width: 1200px;
+        margin: 0 auto;
         padding: 2rem;
-        display: flex;
-        align-items: center;
-        border-radius: 2px;
-        cursor: pointer;
-    }
-    &_text{
-        margin-left: 2rem;
-    }
-    &_caret{
-        margin-left: auto;
-    }
-    &_item{
-        // margin-top: 2rem;
-        color: gray;
-        padding: 2rem;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        transition: all 0.25s linear;
-        border-left: 1px solid transparent ;
-        &:not(:last-child){
-            border-bottom: 1px solid gray;
-        }
-        &:hover{
-            color:black;
-            border-left-color:  blue;
-        }
-    }
-    &_list{
-        border-radius: 2px;
-        box-shadow: 0 0 1rem rgba(black,0.1) ;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        margin-top: 3rem;
-        background-color: white;
-        opacity: 0;
-        visibility: hidden;
-        &:before{
-            content: "" ;
-            @include size(2rem);    
-            background-color: white;
-            // border-left: 10px solid transparent;
-            // border-right: 10px solid transparent;
-            // border-bottom: 10px solid white;
-            position: absolute;
-            top: 0;
-            right:2rem;    
-            transform: translatey(-50%) rotate(-45deg);
-            z-index: -1;
-        }
-        &:after{
-                content: "";
-                @include size(100%,3rem );
+        list-style: none;
+        &_heading{
+            color: black;
+            font-size: 3rem;
+            font-weight:bold;
+            position: relative;
+            padding-bottom: 1rem;
+            &:before{
+                content:"";
+                @include size(3.5rem,10px);
+                background-color: $green-color;
                 position: absolute;
-                top: 0;
+                bottom: 0;
                 left: 0;
-                transform: translatey(-100%);
-                background-color: transparent;  
-                z-index: -2;
-                cursor: pointer;
             }
         }
-        
-        &:hover{
-            .dropdown_list{
-                opacity: 1;
-                visibility: visible;
+        &_filter{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1rem;
+        }
+        &_tab{
+            display: flex;
+            &-item{
+            cursor: pointer;
+            padding: 1rem 2rem;
+            border: 2px solid $green-color;
+            border-radius:2rem 0 2rem 2rem; 
+            &:not(:first-child){
+                margin-left: 1rem;
+            }
+            &:hover{
+                color: white;
+                background-color: $green-color;
+            }
             }
         }
- }
-        
+        &_all{
+            display: inline-block;   
+            color: white    ;
+            text-decoration: none;
+            font-size: 2.5rem;
+            background-color: $green-color;
+            padding: 10px;  
+            border-radius: 2rem;
+            // @include size(3rem,3rem);
+        }
+        &_list{
+            display: flex;
+            width: 25%;
 
+
+        }
+        @media screen and (max-width: 1023px) {
+            // .work{
+            //     &_item{
+            //         wwid
+            //     }
+            // }
+        }
+    }   
 
 
 
